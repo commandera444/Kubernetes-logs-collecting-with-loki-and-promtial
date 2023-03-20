@@ -141,3 +141,4 @@ helm install loki-stack grafana/loki-stack --values values.yaml
 ```bash
 k get secrets <-n YOUR_NAME_SPACE_NAME_IF_YOU_INSTALLED_APP_THERE> loki-stack-grafana -o jsonpath="{.data.admin-password}" |base64 -d
 ```
+![Tux, the Linux mascot](/Screens/Sources.png)
