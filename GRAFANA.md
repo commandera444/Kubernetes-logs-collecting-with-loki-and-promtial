@@ -141,4 +141,65 @@ helm install loki-stack grafana/loki-stack --values values.yaml
 ```bash
 k get secrets <-n YOUR_NAME_SPACE_NAME_IF_YOU_INSTALLED_APP_THERE> loki-stack-grafana -o jsonpath="{.data.admin-password}" |base64 -d
 ```
-![Tux, the Linux mascot](/Screens/Sources.png)
+# 5. Go To Datasources field and check Is your Loki Data Source working correctly.
+![Sources](/Screens/Sources.png)![Sources](/Screens/Loki.png)
+
+# Its OK.
+![Sources](/Screens/OK.png)
+
+# 6. Next go to the Dashboard and create Folder for Application Loging.
+![Sources](/Screens/Folder.png)
+# 7. After Then Craete a new Dashboard in this Folder.
+# Select Datasource LOKI and add Your Query For This Panell
+# For Example I'm Using Query For Python Application (Searching "error" in logs every 1 minutes).
+```json
+rate({app="web",namespace="webapps"} |= "error" | pattern `<log>` [1m] )
+```
+![Sources](/Screens/Query.png)
+# `pattern` is in Grafana. In this example I'm sending `Multiline Logs` from Python App, where are `error` s in pattern parser and adding name for it. `<log>`
+
+# 8. After You must add `Notification Policy`, `Contact Point` and `Notification templates` for Alerting. 
+# I'm using Slack.
+# You must eddit `optional Slack settings`  for sneding Correct Message.
+![Sources](/Screens/CP.png)![Sources](/Screens/Slack.png)![Sources](/Screens/SlackSpecial.png)
+# Add `Title` 
+```json
+ERRORS.
+```
+# Add Text Body
+```json
+{{ template "slack.message" . }}
+```
+# 9. Next add `Notification templates`.
+![Sources](/Screens/TMP.png)
+# Add SPECIAL CONFIG FOR NORMAL ALERT MESSAGES.
+```json
+{{ define "slack.print_alert" -}}
+[{{.Status}}]
+Labels:
+{{ range .Labels.SortedPairs -}}
+- {{ .Name }}: {{ .Value }}
+{{ end -}}
+{{- end }}
+{{ define "slack.message" -}}
+{{ if .Alerts.Firing -}}
+{{ len .Alerts.Firing }} firing alert(s):
+{{ range .Alerts.Firing }}
+{{ template "slack.print_alert" . }}
+{{ end -}}
+{{ end }}
+{{- end }}
+```
+# 10. Now go back to Your Dashboard and add Alert Configuration for Your Query.
+![Sources](/Screens/Alert1.png)![Sources](/Screens/Alert2.png)![Sources](/Screens/Alert3.png)
+# 11. Now, when your Application returnet error messages in logs, your Alert manager sent Alert to Your Slack Chanel.
+# Its look like this.
+![Sources](/Screens/AlertMessage.png)
+# 12. You also can see Your Application Logs in Dashboard .
+# Add New Panel In Dashboard, Add Your `Query`, Select `Panel type` `Logs` and see your Application Logs in Grafana Interface. 
+# If log type is `Miltiline`, then you'll be see logs with `Multiline` type.
+# If log type is `Single Line`, then you'll be see logs with `Single Line` type.
+# `MultiLine`
+![Sources](/Screens/MultiLine.png)
+# `SingleLine`
+![Sources](/Screens/SingleLine.png)
