@@ -156,7 +156,7 @@ k get secrets <-n YOUR_NAME_SPACE_NAME_IF_YOU_INSTALLED_APP_THERE> loki-stack-gr
 rate({app="web",namespace="webapps"} |= "error" | pattern `<log>` [1m] )
 ```
 ![Sources](/Screens/Query.png)
-# `pattern` is in Grafana. In this example I'm sending `Multiline Logs` from Python App, where are `error` s in pattern parser and adding name for it. `<log>`
+# `pattern` is `PARSER` in Grafana. You can read more about parsers in documentation page. In this example I'm sending `Multiline Logs` from Python App, where are `error` s in pattern parser and adding name for it. `<log>`
 
 # 8. After You must add `Notification Policy`, `Contact Point` and `Notification templates` for Alerting. 
 # I'm using Slack.
