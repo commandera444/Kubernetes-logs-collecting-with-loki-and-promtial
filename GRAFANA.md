@@ -150,17 +150,17 @@ k get secrets <-n YOUR_NAME_SPACE_NAME_IF_YOU_INSTALLED_APP_THERE> loki-stack-gr
 # 6. Next go to the Dashboard and create Folder for Application Loging.
 ![Sources](/Screens/Folder.png)
 # 7. After Then Craete a new Dashboard in this Folder.
-# Select Datasource LOKI and add Your Query For This Panell
+# Select Datasource LOKI and add Your Query For This Panell.
 # For Example I'm Using Query For Python Application (Searching "error" in logs every 1 minutes).
 ```json
 rate({app="web",namespace="webapps"} |= "error" | pattern `<log>` [1m] )
 ```
 ![Sources](/Screens/Query.png)
-# `pattern` is `PARSER` in Grafana. You can read more about parsers in documentation page. In this example I'm sending `Multiline Logs` from Python App, where are `error` s in pattern parser and adding name for it. `<log>`
+# `pattern` is `PARSER` in Grafana. You can read more about parsers in documentation page. In this example I'm sending `Multiline Logs` from Python App, where are `error` 's in pattern parser and adding name for it `<log>` .
 
 # 8. After You must add `Notification Policy`, `Contact Point` and `Notification templates` for Alerting. 
 # I'm using Slack.
-# You must eddit `optional Slack settings`  for sneding Correct Message.
+# You must edit `optional Slack settings`  for sending Correct Message.
 ![Sources](/Screens/CP.png)![Sources](/Screens/Slack.png)![Sources](/Screens/SlackSpecial.png)
 # Add `Title` 
 ```json
@@ -192,7 +192,7 @@ Labels:
 ```
 # 10. Now go back to Your Dashboard and add Alert Configuration for Your Query.
 ![Sources](/Screens/Alert1.png)![Sources](/Screens/Alert2.png)![Sources](/Screens/Alert3.png)
-# 11. Now, when your Application returnet error messages in logs, your Alert manager sent Alert to Your Slack Chanel.
+# 11. Now, when your Application returned error messages in logs, your Alert manager sent Alert to Your Slack Chanel.
 # Its look like this.
 ![Sources](/Screens/AlertMessage.png)
 # 12. You also can see Your Application Logs in Dashboard .
