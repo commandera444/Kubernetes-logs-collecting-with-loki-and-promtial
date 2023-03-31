@@ -14,4 +14,4 @@ This is a simple documentation how to install Grafana, Loki, Promtail in Kuberne
 # Documentation 
 
 * [Simple Description](./Documents/) about Configuration file.
-* [Grafana Documentation](https://) page.
+* [Grafana Documentation](https://grafana.com/oss/loki/) page.

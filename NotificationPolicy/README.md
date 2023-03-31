@@ -16,7 +16,7 @@ Add Text Body
 ```
 Add Notification templates.
 
-![Sources](.././Screens/TMP.png)
+![Sources](.././Screens/Template.png)
 
 ```bash
 {{ define "slack.print_alert" -}}
@@ -34,7 +34,7 @@ Logs {{ .Labels.<YOUR_PATTERN_NAME> }}
 {{ end }}
 {{- end }}
 ```
-More about in [Grafana Documentation Page.](https://)
+More about in [Grafana Documentation Page.](https://grafana.com/docs/grafana/latest/alerting/manage-notifications/template-notifications/create-notification-templates/)
 
 
 # Pattern name is using in queries for sending log lines from log file.

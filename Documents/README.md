@@ -3,7 +3,7 @@
 # About LOKI configuration.
 
 
-In this section you configure your AWS S3 Bucket as Storage for saving Indexes and Chunkes. More about in [Grafana Documentation Page.](https://)
+In this section you configure your AWS S3 Bucket as Storage for saving Indexes and Chunkes. More about in [Grafana Documentation Page.](https://grafana.com/docs/loki/latest/operations/storage/filesystem/)
 ```yaml
     storage_config:
       filesystem: null
@@ -18,7 +18,7 @@ In this section you configure your AWS S3 Bucket as Storage for saving Indexes a
 ```
 
 
-In this section you configure detalis for Indexes and Chunkes period, and At what time will loki start save and sending CHunks and Indexes. More about in [Grafana Documentation Page.](https://)
+In this section you configure detalis for Indexes and Chunkes period, and At what time will loki start save and sending CHunks and Indexes. More about in [Grafana Documentation Page.](https://grafana.com/docs/loki/latest/operations/storage/schema/)
 ```yaml
     schema_config:
       configs:
@@ -33,7 +33,7 @@ In this section you configure detalis for Indexes and Chunkes period, and At wha
 
 
 The ingester service is responsible for writing log data to long-term storage backends. 
-For example if Cunks size in period will be 2MB, ingester will be send it in S3 Bucket, if after 30 minutes Chunks size will not be a 2MB ingester also will be send Chunks in S3 Bucket. More about in [Grafana Documentation Page.](https://)
+For example if Cunks size in period will be 2MB, ingester will be send it in S3 Bucket, if after 30 minutes Chunks size will not be a 2MB ingester also will be send Chunks in S3 Bucket. More about in [Grafana Documentation Page.](https://grafana.com/docs/loki/latest/operations/storage/boltdb-shipper/#ingesters)
 ```yaml
     ingester: 
       chunk_encoding: gzip
@@ -51,7 +51,7 @@ For example if Cunks size in period will be 2MB, ingester will be send it in S3 
 
 The compactor will be compact all Indexes in one file every 10 minutes and will be send it in S3 Bucket.
 Retention period and Max query lenght allowed you to view Indexes and Chunkes from S3 Bucket from some period.
-In this example Max 30 days.  More about in [Grafana Documentation Page.](https://)
+In this example Max 30 days.  More about in [Grafana Documentation Page.](https://grafana.com/docs/loki/latest/operations/storage/retention/#retention-configuration)
 ```yaml
     compactor:
       working_directory: /data/my/compactor
@@ -69,7 +69,7 @@ In this file I'm using default configuration.
 I'm only add `PipeLine Stages` for `MultiLine` logs.
 
 
-For Multiline logs searching I'm using "firsline:" expression, and for compacting all lines I'm using "-regex:" More about in [Grafana Documentation Page.](https://)
+For Multiline logs searching I'm using "firsline:" expression, and for compacting all lines I'm using "-regex:" More about in [Grafana Documentation Page.](https://grafana.com/docs/loki/latest/clients/promtail/stages/multiline/)
 ```yaml 
       scrapeConfigs: |
         - job_name: custom-config
