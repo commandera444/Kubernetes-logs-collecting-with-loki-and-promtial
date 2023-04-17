@@ -6,7 +6,7 @@ For example :
 ```bash
 {app="web",namespace="webapps"} |="error"
 ```
-In this example there are "Multiline" logs. Multiline stage configured in `values.yaml` file. You can see about Multiline stages in [Description](.././Documents).
+In this example there are "Multiline" logs. Multiline stage configured in `values.yaml` file. You can see about Multiline stages in [Description](.././Documents/README.md).
 ![Sources](.././Screens/MultiLine.png)
 Other example in "Singleline" mod.
 ```bash
@@ -16,4 +16,4 @@ Other example in "Singleline" mod.
 
 # Next step.
 Now you can configure notification policy and template file for your alerts.
-See more [in this page](.././NotificationPolicy/)
+See more [in this page](.././NotificationPolicy/README.md)
