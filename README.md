@@ -11,7 +11,7 @@
 * [Installation](./Installation/README.md)
 * [Requried Configurations.](./ConfigFiles/README.md)
 * [Log viewing example.](./LogsView/README.md)
-* [Notification Template and Polic configuration.](./NotificationPolicy/README.md)
+* [Notification Template and Policy configuration.](./NotificationPolicy/README.md)
 
 
 # Documentation 
