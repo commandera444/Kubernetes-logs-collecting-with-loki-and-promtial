@@ -54,7 +54,7 @@ serviceAccount:
   create: true
   name: "loki"
   annotations:
-    eks.amazonaws.com/role-arn: "<YOUR BUCKET ARN>"
+    eks.amazonaws.com/role-arn: "<IAM ROLE ARN WHO GOT AN ACCESS to  S3 BUCKET>"
   automountServiceAccountToken: true
 
 compactor:
